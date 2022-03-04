@@ -203,7 +203,7 @@ for SUBJECT in ${SUBJ_LIST} ; do
 	exit" > ${SUBJECTS_DIR}/${SUBJECT}/shots/volume.cmd
 	if [[ -f ${SUBJECTS_DIR}/${SUBJECT}/mri/brainmask.mgz ]] && [[ -f ${SUBJECTS_DIR}/${SUBJECT}/mri/aparc+aseg.mgz ]] ; then
 		freeview -v ${SUBJECTS_DIR}/${SUBJECT}/mri/brainmask.mgz -continue \
-		-v ${SUBJECTS_DIR}/${SUBJECT}/mri/aparc+aseg.mgz:lut=${FREESURFER_HOME}/FreeSurferColorLUT.txt:opacity=0.12 \
+		-v ${SUBJECTS_DIR}/${SUBJECT}/mri/aparc+aseg.mgz:lut=${FREESURFER_HOME}/FreeSurferColorLUT.txt:opacity=0.12:colormap=lut \
 		-cmd ${SUBJECTS_DIR}/${SUBJECT}/shots/volume.cmd
 	else
 		convert -background black -font Arial -size 264x264 -pointsize 12 -gravity center -fill white label:"File does not exist" ${SUBJECTS_DIR}/${SUBJECT}/shots/${SUBJECT}_aseg_cor068.png
